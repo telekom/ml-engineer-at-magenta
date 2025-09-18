@@ -1,0 +1,26 @@
+[tool.dagster]
+module_name = "code_location_interview"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code_location_interview"
+version = "1.0.0"
+description = "A sample code location with some python and dbt assets"
+authors = [{ name = "Nadia Alloppi", email = "Your@email.com" }]
+license = { text = "UNLICENSED" }
+dependencies = ["dagster>=1.9.11,<1.10"]
+
+[project.optional-dependencies]
+dev = ["dagster-webserver>=1.9.11,<1.10", "pytest"]
+
+[project.urls]
+repository = "https://github.com/myorg/interview"
+
+[tool.setuptools.packages.find]
+exclude = ["code_location_interview_tests"]

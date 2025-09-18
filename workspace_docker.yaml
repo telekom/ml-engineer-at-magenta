@@ -1,0 +1,10 @@
+---
+load_from:
+  - grpc_server:
+      host: codelocation-interview
+      port: 4000
+      location_name: "interview"
+  - grpc_server:
+      host: codelocation-foo
+      port: 4000
+      location_name: "foo"
