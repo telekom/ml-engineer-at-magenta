@@ -32,11 +32,8 @@ The high level requiremenets for the tool(s) are as follows:
 - Can be deployed in GCP
 - Different model training results can be compared
 - Model release process is transparent and automated, but has human in the loop step
-- Model files are stored in a secure way
+- Data privacy and IT security is considered (e.g. model files are stored in a secure way, no data is sent outside of Europe)
 - Costs are minimised
-
-
-### Implementation
 
 Your task is to:
 
@@ -59,18 +56,19 @@ Our suggestions:
 - Be ready to explain your code to us and why you implemented it in this way.
 
 
-### Presentation
+## Presentation
 
-During the second round of the interview, you will have a chance to present us:
+During the the technical interview, you will have a chance to present us:
 - your findings about the current model release process
 - which tool(s) you selected and why
 - the improved model release process (ideally with a live demo)
+- your code/implementation
 
 On top of this, we will have a discussion about a hypothetical production rollout of the selected tool(s). 
 Here are some of the questions we might ask:
 - How would the architecture look like?
 - What are the infrastructure requirements?
-- What will this cost for the company?
+- What kind costs do you expect?
 - What IT security and data privacy relevant risks do you forsee?
 - What are the high level tasks for the production rollout? What do you think is a reasonable timeline for the rollout?
 
