@@ -2,7 +2,7 @@
 name = "interview"
 version = "1.0.0"
 description = "interview"
-authors = [{ name = "Nadia Alloppi", email = "Your@email.com" }]
+authors = [{ name = "Julia Hermann", email = "julia.hermann@magenta.at" }]
 requires-python = "== 3.12"
 
 [tool.pixi.project]
@@ -168,12 +168,8 @@ description = "Update from template"
 [tool.pixi.tasks.start-dev]
 cmd = "pixi run -e ci-validation dagster dev"
 cwd = "."
-env = { FOO = "bar" }
+env = { DAGSTER_HOME = "/workspaces/ml-engineer-at-magenta/dagster_runs" }
 description = "Start dagster webserver in dev mode"
-
-[tool.pixi.tasks.cleanup-state]
-cmd = "rm -rf /Users/giacomo/Desktop/Nadia/interview-z_state"
-description = "clean state directory"
 
 [tool.pixi.tasks.secrets-encrypt]
 cmd = "pixi run -e secops ./scripts/encrypt_secrets.sh"

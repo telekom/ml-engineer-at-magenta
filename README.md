@@ -1,11 +1,11 @@
-# Coding Assignment for Data Scientist Position at Magenta
+# Technical Assignment for Machine Learning Engineer Position at Magenta
 
-Hello! You made it to the second round of interviews for the Data Scientist position at Magenta – congratulations!  
-This step is designed to help us get to know each other better. You'll get the chance to work in a development environment that closely resembles the one we use at Magenta.
+Hello! You made it to the second round of interviews for the Machine Learning Engineer position at Magenta – congratulations!  
+This step is designed to help us get to know each other better. You'll get the chance to work in a development environment that closely resembles the one we use at Magenta on a task that is representative of the role.
 
 ---
 
-## Quick Start
+## Quick Start to to Codespaces
 
 This repository contains example pipelines and data for your interview assignment.
 
@@ -26,112 +26,62 @@ Steps to get started:
 
 ## Your Assignment
 
-Imagine you are a data scientist at Magenta and your task is to pitch a new use case for upselling activities to the marketing department.  
-The goal is to apply machine learning to better identify which customers to target for upselling campaigns.
+Imagine you are a Machine Learning Engineer at Magenta and the Data Science team has reached out to you to improve the current model release process. They kindly asked you to integrate a **state-of-the-art experiment tracking and model registry solution**.
 
-> **Upselling**: When a customer upgrades to a better and more expensive product.  
-> Example: A customer currently has a mobile contract with 10 GB data. After a marketing intervention, they upgrade to a 50 GB tariff.
-
-### The assignment consists of two parts:
-
----
-
-### 1. Model implementation
-
-We’ve prepared three datasets:
-
-- `core_data`: contract-level information
-- `usage_info`: data usage and roaming activity from the past 3 months
-- `customer_interactions`: customer service interaction records in the last 6 months
-
-To access all sample data, materialize the assets in the `get_data` group under the `interview` folder:
-
-![alt text](image-2.png)
-
-You can explore the materialized data in the notebook located at `notebooks/explore.ipynb`. 
-This notebook also provides a more detailed description of the datasets. To run the code, you can use the `dev` Jupyter kernel.
-
-We encourage you to integrate your code into this repository, following the existing structure.  
-Specifically, we expect you to implement the model training and inference as Dagster assets.  
-Please contribute to the following folder: `src/code_location_interview/code_location_interview/assets/magenta_interview`.  
-We've provided a basic structure to help you get started, but feel free to modify or extend it as needed.  
-
-Feel free to use notebooks for exploration porpuse.  
-Be ready to explain your code to us, for example why you choose specific model, which explorative analysis you run, which metric you implemented etc (commenting the code will help everybody in this exercise ;) ).
-
-Please also keep in mind that the data is randomly generated — we don’t expect your model to have the highest accuracy.  
-The goal is to see how you approach a data science task, how you explain your choices, and how you evaluate your results (e.g. through performance metrics, interpretation of outcomes, and reflections on limitations).
-
-**Disclaimer**  
-We understand that this repository contains more than needed and introduces several new tools at once.  
-We really appreciate your flexibility and your ability to learn fast. What matters most to us is how you approach this challenge — not having a perfect model or the most optimized code.  
-If building Dagster assets turns out to don't work as expected, feel free to use a notebook instead or just give it a try anyway.
+The high level requiremenets for the tool(s) are as follows:
+- Can be deployed in GCP
+- Different model training results can be compared
+- Model release process is transparent and automated, but has human in the loop step
+- Model files are stored in a secure way
+- Costs are minimised
 
 
-> Tip: After changing or creating assets, reload them in Dagster to reflect updates:
+### Implementation
 
-![Reload assets](image-1.png)
+Your task is to:
 
+1. Understand the current model release process of a simplified data science use case in the `interview` code location and think of potential issues with it. (This video might help: https://www.youtube.com/watch?v=yG0OP-wUbzA)
 
----
+![Assets in interview code location](interview_code_location.png)
 
-### 2. Presentation Part
+2. Investigate available experiment tracking & model registry tools and select the most suitable one based on the provided requirements above.
 
-Use any tool you prefer (e.g., PowerPoint, Google Slides) to prepare a **20-minute presentation** for a **non-technical business audience**.
-
-Imagine you are in the early phase of the project. You’ve performed some exploratory analysis and now you’re presenting your idea to stakeholders.
-
-> The presentation does not need to reflect only what you’ve implemented in code.  
-> Feel free to assume access to more features or experimentation with different approaches.
-
-Please cover the following points:
-
-- What is the scope of the project
-- Which input features you would like to use for the model
-- What modeling approach you propose
-- What metric you would use to measure success
-- How you would compute the business value generated by your model
-- Which stakeholders you would involve and at what stages
+3. Implement a prototype of the selected tool(s) and integrate it to the model release process in this repository.  
 
 
-## Useful Literature
+Our suggestions:
+
+- Forking this repo makes it easy for you to work on it. Use feature branches, descriptive commits and pull requests for transparency.
+- Please focus on the following folder: `src/code_location_interview/code_location_interview/assets/magenta_interview` and follow the structure provided.
+- Feel free to chose any open source or commercial experiment tracking & model registry tool of your liking, but you may also implement a custom solution.
+- As for prototype, we would like to see a solution that can run locally (on Codespaces). We like to work with containerised applications, but happy to see any creative soltuion that makes sense to you.
+- Aim towards a good enough implementation, we don't expect it to be perfect, after all it is only a prototype.
+- Be ready to explain your code to us and why you implemented it in this way.
+
+
+### Presentation
+
+During the second round of the interview, you will have a chance to present us:
+- your findings about the current model release process
+- which tool(s) you selected and why
+- the improved model release process (ideally with a live demo)
+
+On top of this, we will have a discussion about a hypothetical production rollout of the selected tool(s). 
+Here are some of the questions we might ask:
+- How would the architecture look like?
+- What are the infrastructure requirements?
+- What will this cost for the company?
+- What IT security and data privacy relevant risks do you forsee?
+- What are the high level tasks for the production rollout? What do you think is a reasonable timeline for the rollout?
+
+Our suggestions:
+
+- Feel free to prepare any material you think might help you in the presentation / discussion. 
+- Be ready to demo your implementation using Codespaces. 
+
+## Useful Links
 
 - Pixi: https://pixi.sh/latest/advanced/installation/
 - Dagster: https://dagster.io/  
   Further learning: https://courses.dagster.io/
-- dbt: https://www.getdbt.com/
-
-## advanced usage
-### docker
-
-```bash
-docker compose -f docker-compose.yml --profile dagster_onprem up --build
-```
-
-### .env  file
-
-Post install:
-
-- update the secrets in the `.env` files by executing: `openssl rand -base64 32` and setting a suitable secret
-- ensure the `.env.enc` can be created by following the instructions in [documentation/secops]
-
-here you find an example `.env` file which should have been auto-generated
-
-```
-DO_NOT_TRACK=1
-
-WAREHOUSE_DAGSTER_HOSTNAME=dagster_db
-WAREHOUSE_DAGSTER_DB=dagster
-WAREHOUSE_DAGSTER_USER=dagster
-# openssl rand -base64 32
-WAREHOUSE_DAGSTER_PASSWORD=<<your-secret>>
-
-# only set this for dev mode!
-DAGSTER_IS_DEV_CLI=True
-
-# only set in the container (should be done from CI pipeline)
-#DAGSTER_CLOUD_DEPLOYMENT_NAME=techexploration
-#DAGSTER_CLOUD_GIT_URL=https://github.com/myorg/interview
-#DAGSTER_CLOUD_GIT_SHA=<<your sha>>
-#DAGSTER_CLOUD_GIT_BRANCH=main
-```
+  Example of ML model release with Dagster: https://www.youtube.com/watch?v=yG0OP-wUbzA
